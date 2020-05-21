@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Ad;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class AdController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
-        return response()->json($product, 200, [], JSON_UNESCAPED_SLASHES);
+        $ads = Ad::all();
+        return response()->json($ads, 200, [], JSON_UNESCAPED_SLASHES);
     }
 
     /**
@@ -33,24 +33,22 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ad $ad)
     {
         //
-        $product = Product::find($id);
-        return response()->json($product, 200, [], JSON_UNESCAPED_SLASHES);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Ad $ad)
     {
         //
     }
@@ -58,10 +56,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Ad $ad)
     {
         //
     }
