@@ -22,3 +22,4 @@ Route::get('categories', 'API\CategoryController@index');
 Route::get('products', 'API\ProductController@index');
 Route::get('products/{id}', 'API\ProductController@show');
 Route::post('shipping', 'API\ShippingController@store');
+Route::get('ads', 'API\AdController@index');
