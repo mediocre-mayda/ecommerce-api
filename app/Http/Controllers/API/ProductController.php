@@ -23,9 +23,9 @@ class ProductController extends Controller
                 $products = Product::where('featured' , true)->take(10)->get();
             }
         } else {
-            $product = Product::all();
+            $products = Product::all();
         }
-        return response()->json($product, 200, [], JSON_UNESCAPED_SLASHES);
+        return response()->json($products, 200, [], JSON_UNESCAPED_SLASHES);
       
     }
 
