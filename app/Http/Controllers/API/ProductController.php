@@ -15,13 +15,17 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        $products = [];
         if($request->has('flag')) {
-            return response($request->input('flag'));
+            if($request->input('flag') === 'new') {
+                $products = Product::orderBy('created_at', 'desc')->take(10)->get();
+            } else if($request->input('flag') === 'featured') {
+                $products = Product::where('featured' , true)->take(10)->get();
+            }
         } else {
             $product = Product::all();
-            return response()->json($product, 200, [], JSON_UNESCAPED_SLASHES);
         }
-      
+        return response()->json($product, 200, [], JSON_UNESCAPED_SLASHES);
       
     }
 
