@@ -64,4 +64,11 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function productsByCategory($id) {
+        $products = Product::where('category_id', $id)->get();
+        return response()->json(
+            ['success' => true, 'data' => $products], 
+            200, [], JSON_UNESCAPED_SLASHES);
+    }
 }

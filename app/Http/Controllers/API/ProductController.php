@@ -13,10 +13,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $product = Product::all();
-        return response()->json($product, 200, [], JSON_UNESCAPED_SLASHES);
+        if($request->has('flag')) {
+            return response($request->input('flag'));
+        } else {
+            $product = Product::all();
+            return response()->json($product, 200, [], JSON_UNESCAPED_SLASHES);
+        }
+      
+      
     }
 
     /**
