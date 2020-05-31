@@ -66,7 +66,7 @@ class CategoryController extends Controller
     }
 
     public function productsByCategory($id) {
-        $products = App\Models\Product::where('category_id', $id)->get();
+        $products = \App\Models\Product::where('category_id', $id)->get();
         return response()->json(
             ['success' => true, 'data' => $products], 
             200, [], JSON_UNESCAPED_SLASHES);
